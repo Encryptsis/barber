@@ -5,14 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WILD DEER - Administración</title>
+
+    <!-- Bootstrap 4.5.2 CSS desde CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome 5.15.3 desde CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap Icons desde CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../CSS/generales.css">
-    <link rel="stylesheet" href="../CSS/preloader.css">
+
+    <!-- FullCalendar CSS desde CDN -->
     <link href='https://unpkg.com/fullcalendar@5.10.1/main.css' rel='stylesheet' />
+
+    <!-- Archivos CSS personalizados compilados con Vite -->
+    @vite(['resources/css/generales.css', 'resources/css/preloader.css'])
     <style>
+        body {
+                margin: 0;
+                font-family: Cambria, Georgia, serif;
+                background-image: url("{{ Vite::asset('public/Imagenes/background.jpeg') }}"); 
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+            }   
         /* Estilos personalizados */
         body {
             color: white; /* Color del texto */
