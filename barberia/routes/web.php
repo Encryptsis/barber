@@ -1,47 +1,32 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\PerfilController;
 
-// Ruta para la página de inicio
+// Página de inicio
 Route::get('/', function () {
-    return view('paginas.index'); // Apunta a 'paginas.index'
+    return view('paginas.index');
+});
+
+// Agrupación de rutas de agenda
+Route::prefix('agenda')->group(function () {
+    Route::get('/facial', [AgendaController::class, 'facial']);
+    Route::get('/administrador', [AgendaController::class, 'administrador']);
+    Route::get('/barbero', [AgendaController::class, 'barbero']);
+    Route::get('/cliente', [AgendaController::class, 'cliente']);
 });
 
 
-// Rutas para las diferentes agendas
-Route::get('/agenda/facial', function () {
-    return view('paginas.agenda_Facial');
+// Agrupación de rutas de perfil
+Route::prefix('perfil')->group(function () {
+    Route::get('/administrador', [PerfilController::class, 'administrador']);
+    Route::get('/barbero', [PerfilController::class, 'barbero']);
+    Route::get('/cliente', [PerfilController::class, 'cliente']);
+    Route::get('/faciales', [PerfilController::class, 'faciales']);
 });
 
-Route::get('/agenda/administrador', function () {
-    return view('paginas.agenda_Administrador');
-});
 
-Route::get('/agenda/barbero', function () {
-    return view('paginas.agenda_barbero');
-});
-
-Route::get('/agenda/cliente', function () {
-    return view('paginas.agenda_cliente');
-});
-// Rutas para las páginas de perfiles
-Route::get('/perfil/administrador', function () {
-    return view('paginas.perfil_administrador');
-});
-
-Route::get('/perfil/barbero', function () {
-    return view('paginas.perfil_barbero');
-});
-
-Route::get('/perfil/cliente', function () {
-    return view('paginas.perfil_cliente');
-});
-
-Route::get('/perfil/faciales', function () {
-    return view('paginas.perfil_faciales');
-});
-
-// Otras páginas como registro y login
+// Rutas para registro y login
 Route::get('/registro', function () {
     return view('paginas.registro');
 });
@@ -49,8 +34,4 @@ Route::get('/registro', function () {
 Route::get('/login', function () {
     return view('paginas.login');
 });
-
-// Página para agendar citas
-Route::get('/agendar/cita', function () {
-    return view('paginas.agendar_cita');
-});
+?>
