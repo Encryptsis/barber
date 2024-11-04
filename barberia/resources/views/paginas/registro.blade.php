@@ -4,10 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WILD DEER</title>
+
+    <!-- Bootstrap CSS desde CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">   
+
+    <!-- Bootstrap Icons desde CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">   
-    <link rel="stylesheet" href="../CSS/acceso.css"> 
+
+    <!-- Archivo CSS personalizado compilado con Vite -->
+    @vite(['resources/css/acceso.css'])
 </head>
+
 
 <body>
 
@@ -37,6 +44,10 @@
                         
                         <div class="form-group">
                             <label for="numero_cliente">Número de Teléfono:</label>
+                            <input type="text" class="form-control" name="usuario" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="correo_cliente">Correo:</label>
                             <input type="text" class="form-control" name="usuario" required>
                         </div>
 
