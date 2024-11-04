@@ -24,3 +24,33 @@ Route::get('/agenda/barbero', function () {
 Route::get('/agenda/cliente', function () {
     return view('paginas.agenda_cliente');
 });
+// Rutas para las páginas de perfiles
+Route::get('/perfil/administrador', function () {
+    return view('paginas.perfil_administrador');
+});
+
+Route::get('/perfil/barbero', function () {
+    return view('paginas.perfil_barbero');
+});
+
+Route::get('/perfil/cliente', function () {
+    return view('paginas.perfil_cliente');
+});
+
+Route::get('/perfil/faciales', function () {
+    return view('paginas.perfil_faciales');
+});
+
+// Otras páginas como registro y login
+Route::get('/registro', function () {
+    return view('paginas.registro');
+});
+
+Route::get('/login', function () {
+    return view('paginas.login');
+});
+
+// Página para agendar citas
+Route::get('/agendar/cita', function () {
+    return view('paginas.agendar_cita');
+});

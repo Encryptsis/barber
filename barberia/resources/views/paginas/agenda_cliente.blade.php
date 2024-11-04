@@ -4,15 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WILD DEER</title>
+    <title>WILD DEER - Administración</title>
+
+    <!-- Bootstrap 4.5.2 CSS desde CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome 5.15.3 desde CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap Icons desde CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../CSS/generales.css">
-    <link rel="stylesheet" href="../CSS/preloader.css">
+
+    <!-- FullCalendar CSS desde CDN -->
     <link href='https://unpkg.com/fullcalendar@5.10.1/main.css' rel='stylesheet' />
+
+    <!-- Archivos CSS personalizados compilados con Vite -->
+    @vite(['resources/css/generales.css', 'resources/css/preloader.css'])
     <style>
+        body {
+                margin: 0;
+                font-family: Cambria, Georgia, serif;
+                background-image: url("{{ Vite::asset('public/Imagenes/background.jpeg') }}"); 
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: center;
+            } 
         /* Estilos personalizados */
         .fc-toolbar h2 {
             color: white; /* Texto del mes */
@@ -23,6 +40,7 @@
         #calendar {
             max-width: 900px; /* Tamaño del calendario */
             margin: auto;
+            max-height: 400px;
         }
         .fc-event {
             background-color: green; /* Color de las citas agendadas */
@@ -141,7 +159,7 @@
             const calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'timeGridWeek', // Ver horas
                 allDaySlot: false, // Ocultar slot de todo el día
-                slotDuration: '00:45:00', // Duración de las citas
+                slotDuration: '01:00:00', // Duración de las citas
                 slotMinTime: '11:00:00', // Hora mínima
                 slotMaxTime: '20:00:00', // Hora máxima
                 events: events,
