@@ -1,0 +1,16 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#5130
+    [34mall[39m: [
+      [34;4mApp\Models\Cita[39;24m {#5131
+        [34mid_cita[39m: [35m1[39m,
+        [34mid_usuario_cliente[39m: [35m1[39m,
+        [34mfecha[39m: "[32m2024-10-30[39m",
+        [34mhora_reserva[39m: "[32m2024-10-30 04:57:27-06[39m",
+        [34mhora_termino[39m: [36mnull[39m,
+        [34mmetodo_pago[39m: "[32mEfectivo[39m",
+        [34mcosto_total[39m: "[32m0.00[39m",
+        [34mid_usuario_barbero[39m: [36mnull[39m,
+        [34manticipo[39m: "[32m0.00[39m",
+      },
+    ],
+  }
+

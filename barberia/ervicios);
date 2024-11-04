@@ -1,0 +1,71 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#5131
+    [34mall[39m: [
+      [34;4mApp\Models\Servicio[39;24m {#5161
+        [34mid_servicio[39m: [35m1[39m,
+        [34mnombre_servicio[39m: "[32mHaircut[39m",
+        [34mdescripcion_servicio[39m: "[32mGet the haircut you want with our expert stylist. Whether it's a classic style or something unique, just bring a picture, and we'll create the look you desire.[39m",
+        [34mprecio[39m: "[32m45.00[39m",
+        [34mduracion[39m: [35m40[39m,
+        [34mpivot[39m: [34;4mIlluminate\Database\Eloquent\Relations\Pivot[39;24m {#5125
+          [34mid_usuario_barbero[39m: [35m3[39m,
+          [34mid_servicio[39m: [35m1[39m,
+        },
+      },
+      [34;4mApp\Models\Servicio[39;24m {#5159
+        [34mid_servicio[39m: [35m2[39m,
+        [34mnombre_servicio[39m: "[32mFull Cut[39m",
+        [34mdescripcion_servicio[39m: "[32mExperience our original full haircut package: A premium grooming service that includes a precise haircut, detailed beard shaping and eyebrow trimming.[39m",
+        [34mprecio[39m: "[32m60.00[39m",
+        [34mduracion[39m: [35m60[39m,
+        [34mpivot[39m: [34;4mIlluminate\Database\Eloquent\Relations\Pivot[39;24m {#5126
+          [34mid_usuario_barbero[39m: [35m3[39m,
+          [34mid_servicio[39m: [35m2[39m,
+        },
+      },
+      [34;4mApp\Models\Servicio[39;24m {#5162
+        [34mid_servicio[39m: [35m3[39m,
+        [34mnombre_servicio[39m: "[32mKids[39m",
+        [34mdescripcion_servicio[39m: "[32mWe welcome kids for haircuts! For their comfort and safety, we recommend parent and adult supervision for those who are a bit more active.[39m",
+        [34mprecio[39m: "[32m35.00[39m",
+        [34mduracion[39m: [35m30[39m,
+        [34mpivot[39m: [34;4mIlluminate\Database\Eloquent\Relations\Pivot[39;24m {#5127
+          [34mid_usuario_barbero[39m: [35m3[39m,
+          [34mid_servicio[39m: [35m3[39m,
+        },
+      },
+      [34;4mApp\Models\Servicio[39;24m {#5163
+        [34mid_servicio[39m: [35m4[39m,
+        [34mnombre_servicio[39m: "[32mBeard Grooming[39m",
+        [34mdescripcion_servicio[39m: "[32mWe offer precise line-ups, shaping, trimming, and shaving. Enjoy a hot towel treatment and relaxing oil for a refreshing experience.[39m",
+        [34mprecio[39m: "[32m30.00[39m",
+        [34mduracion[39m: [35m30[39m,
+        [34mpivot[39m: [34;4mIlluminate\Database\Eloquent\Relations\Pivot[39;24m {#5128
+          [34mid_usuario_barbero[39m: [35m3[39m,
+          [34mid_servicio[39m: [35m4[39m,
+        },
+      },
+      [34;4mApp\Models\Servicio[39;24m {#5164
+        [34mid_servicio[39m: [35m5[39m,
+        [34mnombre_servicio[39m: "[32mWild Cut[39m",
+        [34mdescripcion_servicio[39m: "[32mCome and live the Wild Deer experience, a service in personal care and well-being, leaving you feeling renewed, confident and ready for any adventure.[39m",
+        [34mprecio[39m: "[32m115.00[39m",
+        [34mduracion[39m: [35m90[39m,
+        [34mpivot[39m: [34;4mIlluminate\Database\Eloquent\Relations\Pivot[39;24m {#5129
+          [34mid_usuario_barbero[39m: [35m3[39m,
+          [34mid_servicio[39m: [35m5[39m,
+        },
+      },
+      [34;4mApp\Models\Servicio[39;24m {#5165
+        [34mid_servicio[39m: [35m9[39m,
+        [34mnombre_servicio[39m: "[32mCorte Básico[39m",
+        [34mdescripcion_servicio[39m: "[32mCorte de cabello básico[39m",
+        [34mprecio[39m: "[32m30.00[39m",
+        [34mduracion[39m: [35m30[39m,
+        [34mpivot[39m: [34;4mIlluminate\Database\Eloquent\Relations\Pivot[39;24m {#5130
+          [34mid_usuario_barbero[39m: [35m3[39m,
+          [34mid_servicio[39m: [35m9[39m,
+        },
+      },
+    ],
+  }
+

@@ -1,0 +1,29 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#5158
+    [34mall[39m: [
+      [34;4mApp\Models\BarberoServicio[39;24m {#5187
+        [34mid_usuario_barbero[39m: [35m3[39m,
+        [34mid_servicio[39m: [35m1[39m,
+      },
+      [34;4mApp\Models\BarberoServicio[39;24m {#5132
+        [34mid_usuario_barbero[39m: [35m3[39m,
+        [34mid_servicio[39m: [35m2[39m,
+      },
+      [34;4mApp\Models\BarberoServicio[39;24m {#5134
+        [34mid_usuario_barbero[39m: [35m3[39m,
+        [34mid_servicio[39m: [35m3[39m,
+      },
+      [34;4mApp\Models\BarberoServicio[39;24m {#5135
+        [34mid_usuario_barbero[39m: [35m3[39m,
+        [34mid_servicio[39m: [35m4[39m,
+      },
+      [34;4mApp\Models\BarberoServicio[39;24m {#5142
+        [34mid_usuario_barbero[39m: [35m3[39m,
+        [34mid_servicio[39m: [35m5[39m,
+      },
+      [34;4mApp\Models\BarberoServicio[39;24m {#5122
+        [34mid_usuario_barbero[39m: [35m3[39m,
+        [34mid_servicio[39m: [35m9[39m,
+      },
+    ],
+  }
+
