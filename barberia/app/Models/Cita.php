@@ -12,11 +12,8 @@ class Cita extends Model
 {
     use HasFactory;
 
-    // Especificar el nombre correcto de la tabla
     protected $primaryKey = 'id_cita';
     protected $table = 'cita';
-
-    // Desactivar los timestamps automáticos
     public $timestamps = false;
 
     protected $fillable = [
@@ -30,29 +27,50 @@ class Cita extends Model
         'anticipo',
     ];
 
-    // Definimos la relación con el modelo Servicio
     public function servicios()
     {
-        return $this->belongsToMany(Servicio::class, 'cita_servicio', 'id_cita', 'id_servicio');
+        return $this->belongsToMany(Servicio::class, 'cita_servicio', 'id_cita', 'id_servicio')
+                    ->withPivot('cantidad', 'costo', 'duracion');
     }
 
-    // Sobrescribimos el método save para ajustar los valores antes de guardar
-    public function save(array $options = [])
+    // Método para agregar servicios automáticamente después de crear una cita
+    public function asignarServicios(array $servicios)
     {
-        // Verificar que el barbero tenga el rol correcto antes de guardar
+        $serviciosData = [];
+        foreach ($servicios as $servicio) {
+            $servicioInfo = Servicio::find($servicio['id_servicio']);
+            $serviciosData[$servicio['id_servicio']] = [
+                'cantidad' => $servicio['cantidad'],
+                'costo' => $servicioInfo->precio,
+                'duracion' => $servicioInfo->duracion,
+            ];
+        }
+        // Asociar servicios a la cita
+        $this->servicios()->attach($serviciosData);
+    }
+
+    public function save(array $options = [])
+        {   
+        // Verificar que el usuario que solicita la cita sea un cliente
+        if ($this->id_usuario_cliente) {
+            $cliente = Usuario::find($this->id_usuario_cliente);
+            if (!$cliente || $cliente->rol->nombre_rol !== 'Cliente') {
+                throw new Exception('Solo los usuarios con el rol de Cliente pueden crear citas.');
+            }
+        }
+
+        // Verificar el rol del barbero antes de guardar
         if ($this->id_usuario_barbero) {
-            $barbero = Usuario::find($this->id_usuario_barbero); // Buscar el barbero
+            $barbero = Usuario::find($this->id_usuario_barbero);
             if (!$barbero || !in_array($barbero->rol->nombre_rol, ['Barbero', 'Administrador'])) {
                 throw new Exception('El usuario seleccionado no tiene el rol de Barbero o Administrador.');
             }
         }
 
-        // Calculamos hora_termino sumando una duración predeterminada a hora_reserva
+        // Ajustar la hora_termino y otros cálculos necesarios
         if (!$this->hora_termino && $this->hora_reserva) {
             $this->hora_termino = Carbon::parse($this->hora_reserva)->addMinutes($this->calculateDuration());
         }
-
-        // Ajustamos costo_total y anticipo si no están establecidos
         if (!$this->costo_total) {
             $this->costo_total = $this->calculateCostoTotal();
         }
@@ -60,43 +78,31 @@ class Cita extends Model
             $this->anticipo = $this->calculateAnticipo();
         }
 
-        // Llamamos al método save del padre (Model) para guardar los cambios
         return parent::save($options);
     }
 
-
-    // Método para calcular la duración total de la cita (en minutos)
     private function calculateDuration()
     {
-        // Verifica si la cita tiene servicios asociados, de ser así, calcula la duración total
         if ($this->servicios()->exists()) {
             return $this->servicios->sum(function ($servicio) {
                 return $servicio->pivot->duracion * $servicio->pivot->cantidad;
             });
         }
-
-        // Valor predeterminado en caso de que no tenga servicios
-        return 30; // Puedes ajustar este valor según tus necesidades
+        return 30;
     }
 
-    // Método para calcular el costo total de la cita
     private function calculateCostoTotal()
     {
-        // Si la cita tiene servicios, calcula el costo total sumando los costos de cada servicio
         if ($this->servicios()->exists()) {
             return $this->servicios->sum(function ($servicio) {
                 return $servicio->pivot->costo * $servicio->pivot->cantidad;
             });
         }
-
-        // Valor predeterminado en caso de que no tenga servicios
-        return 50.00; // Ajusta este valor según tus necesidades
+        return 50.00;
     }
 
-    // Método para calcular el anticipo basado en el costo total
     private function calculateAnticipo()
     {
-        // Calcula el anticipo como el 20% del costo total
         return $this->costo_total * 0.2;
     }
 }
