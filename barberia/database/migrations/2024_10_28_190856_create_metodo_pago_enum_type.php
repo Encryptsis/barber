@@ -10,8 +10,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Crear el tipo enumerado metodo_pago_enum en PostgreSQL
-        DB::statement("CREATE TYPE metodo_pago_enum AS ENUM ('Tarjeta de crédito', 'Efectivo', 'Transferencia', 'Otro')");
+        // Verificar si el tipo ya existe
+        if (!DB::select("SELECT 1 FROM pg_type WHERE typname = 'metodo_pago_enum'")) {
+            DB::statement("CREATE TYPE metodo_pago_enum AS ENUM ('Tarjeta de crédito', 'Efectivo', 'Transferencia', 'Otro')");
+        }
     }
 
     /**

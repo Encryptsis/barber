@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rol', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('rol')) {
+            Schema::create('rol', function (Blueprint $table) {
+                $table->id('id_rol');
+                $table->string('nombre_rol')->unique();
+                $table->timestamps();
+            });
+        }
     }
+
 
     /**
      * Reverse the migrations.
