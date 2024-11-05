@@ -106,11 +106,8 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="perfil_administrador.html">Mi Perfil</a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="agenda_Administrador.html">Mi Agenda</a>
+                    <a class="nav-link" href="{{ url('/agenda/administrador') }}">Mi Agenda</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../../index.html">Cerrar Sesión</a>

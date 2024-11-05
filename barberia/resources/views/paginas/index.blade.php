@@ -66,11 +66,12 @@
                     <a class="nav-link" href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ asset('Vista/Paginas/login.html') }}">Iniciar Sesión</a>
+                    <a class="nav-link" href="{{ url('/login') }}">Iniciar Sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ asset('Vista/Paginas/registro.html') }}">Registrarme</a>
+                    <a class="nav-link" href="{{ url('/registro') }}">Registrarme</a>
                 </li>
+
             </ul>
         </div>
     </nav>

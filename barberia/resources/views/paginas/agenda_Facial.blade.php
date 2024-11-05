@@ -80,13 +80,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="perfil_faciales.html">Mi Perfil</a>
+                    <a class="nav-link" href="{{ url('/perfil/faciales') }}">Mi Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="agenda_ Facial.html">Mi Agenda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../../index.html">inicio</a>
+                    <a class="nav-link" href="{{ url('/') }}">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../../index.html">Cerrar Sesion</a>

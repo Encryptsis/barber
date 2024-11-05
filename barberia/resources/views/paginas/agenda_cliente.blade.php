@@ -81,14 +81,11 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="perfil_cliente.html">Mi Perfil</a>
+            <li class="nav-item active">
+                    <a class="nav-link" href="{{ url('/perfil/cliente') }}">Mi Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="agenda_cliente.html">Mi Agenda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../../index.html">Inicio</a>
+                    <a class="nav-link" href="{{ url('/') }}">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../../index.html">Cerrar Sesion</a>
