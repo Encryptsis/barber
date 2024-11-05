@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Usuario;
+use Exception;
 use Carbon\Carbon;
 
 class Cita extends Model
@@ -12,7 +14,6 @@ class Cita extends Model
 
     // Especificar el nombre correcto de la tabla
     protected $primaryKey = 'id_cita';
-
     protected $table = 'cita';
 
     // Desactivar los timestamps automáticos
@@ -35,16 +36,23 @@ class Cita extends Model
         return $this->belongsToMany(Servicio::class, 'cita_servicio', 'id_cita', 'id_servicio');
     }
 
-
     // Sobrescribimos el método save para ajustar los valores antes de guardar
     public function save(array $options = [])
     {
-        // Calculamos `hora_termino` sumando una duración predeterminada a `hora_reserva`
+        // Verificar que el barbero tenga el rol correcto antes de guardar
+        if ($this->id_usuario_barbero) {
+            $barbero = Usuario::find($this->id_usuario_barbero); // Buscar el barbero
+            if (!$barbero || !in_array($barbero->rol->nombre_rol, ['Barbero', 'Administrador'])) {
+                throw new Exception('El usuario seleccionado no tiene el rol de Barbero o Administrador.');
+            }
+        }
+
+        // Calculamos hora_termino sumando una duración predeterminada a hora_reserva
         if (!$this->hora_termino && $this->hora_reserva) {
             $this->hora_termino = Carbon::parse($this->hora_reserva)->addMinutes($this->calculateDuration());
         }
 
-        // Ajustamos `costo_total` y `anticipo` si no están establecidos
+        // Ajustamos costo_total y anticipo si no están establecidos
         if (!$this->costo_total) {
             $this->costo_total = $this->calculateCostoTotal();
         }
@@ -53,8 +61,9 @@ class Cita extends Model
         }
 
         // Llamamos al método save del padre (Model) para guardar los cambios
-        parent::save($options);
+        return parent::save($options);
     }
+
 
     // Método para calcular la duración total de la cita (en minutos)
     private function calculateDuration()
