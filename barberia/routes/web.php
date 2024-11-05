@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\RegistroController;
 
 // Página de inicio
 Route::get('/', function () {
@@ -30,6 +31,9 @@ Route::prefix('perfil')->group(function () {
 Route::get('/registro', function () {
     return view('paginas.registro');
 });
+
+// Nueva ruta POST para procesar el formulario de registro
+Route::post('/registro', [RegistroController::class, 'store'])->name('registro.store');
 
 Route::get('/login', function () {
     return view('paginas.login');

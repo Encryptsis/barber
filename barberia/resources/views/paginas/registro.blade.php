@@ -15,9 +15,7 @@
     @vite(['resources/css/acceso.css'])
 </head>
 
-
 <body>
-
     <div class="wrapper">
         <div class="auth-content">
             <div class="card">
@@ -25,8 +23,8 @@
                     <div class="mb-4">
                         <p class="titulo">BIENVENIDO, REGISTRATE</p>
                     </div>
-                    <form action="../../index.html" method="POST" autocomplete="on">
-                        
+                    <form action="{{ route('registro.store') }}" method="POST" autocomplete="on">
+                        @csrf
                         <div class="form-group">
                             <label for="usuario">Usuario:</label>
                             <input type="text" class="form-control" name="usuario" required>
@@ -39,19 +37,19 @@
                         
                         <div class="form-group">
                             <label for="nombre_cliente">Nombre Completo:</label>
-                            <input type="text" class="form-control" name="usuario" required>
+                            <input type="text" class="form-control" name="nombre_cliente" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="numero_cliente">Número de Teléfono:</label>
-                            <input type="text" class="form-control" name="usuario" required>
+                            <input type="text" class="form-control" name="numero_cliente" required>
                         </div>
                         <div class="form-group">
                             <label for="correo_cliente">Correo:</label>
-                            <input type="text" class="form-control" name="usuario" required>
+                            <input type="email" class="form-control" name="correo_cliente" required>
                         </div>
 
-                        <input class="btn shadow-2 col-md-12 text-uppercase mt-4" type="submit" name="accion" value="Ingresar">
+                        <input class="btn shadow-2 col-md-12 text-uppercase mt-4" type="submit" value="Ingresar">
                     </form>
                     
                     <hr>
@@ -67,6 +65,5 @@
         </div>
     </div>
 
-    
 </body>
 </html>
