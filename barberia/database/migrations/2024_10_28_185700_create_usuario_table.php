@@ -17,7 +17,7 @@ return new class extends Migration
                 $table->string('telefono', 15)->unique();
                 $table->string('foto_perfil', 100)->nullable();
                 $table->boolean('activo')->default(true);
-
+                
                 $table->unsignedBigInteger('id_rol');
                 $table->foreign('id_rol')->references('id_rol')->on('rol')->onDelete('restrict')->onUpdate('cascade');
 

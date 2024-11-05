@@ -34,16 +34,17 @@
                             <label for="clave">Clave:</label>
                             <input type="password" class="form-control" name="clave" required>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="nombre_cliente">Nombre Completo:</label>
-                            <input type="text" class="form-control" name="nombre_cliente" required>
+                            <label for="nombre_completo">Nombre Completo:</label>
+                            <input type="text" class="form-control" name="nombre_completo" required> <!-- Cambiado a 'nombre_completo' -->
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="numero_cliente">Número de Teléfono:</label>
-                            <input type="text" class="form-control" name="numero_cliente" required>
+                            <label for="telefono">Número de Teléfono:</label>
+                            <input type="text" class="form-control" name="telefono" required> <!-- Cambiado a 'telefono' -->
                         </div>
+
                         <div class="form-group">
                             <label for="correo_cliente">Correo:</label>
                             <input type="email" class="form-control" name="correo_cliente" required>
@@ -51,6 +52,7 @@
 
                         <input class="btn shadow-2 col-md-12 text-uppercase mt-4" type="submit" value="Ingresar">
                     </form>
+
                     
                     <hr>
                     

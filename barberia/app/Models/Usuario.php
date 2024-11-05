@@ -14,6 +14,7 @@ class Usuario extends Model
         'clave',
         'nombre_completo',
         'telefono',
+        'correo_cliente',
         'foto_perfil',
         'activo',
         'id_rol'
